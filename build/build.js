@@ -2016,7 +2016,7 @@ var ConvolutionalLayer = function (_Layer) {
         strideY: this.strideY,
         filterW: this.filterW,
         filterH: this.filterH,
-        filterCount: this.filterCount,
+        filters: this.filterCount,
         zeroPaddingX: this.zeroPaddingX,
         zeroPaddingY: this.zeroPaddingY,
         params: this.getParams()
