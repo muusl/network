@@ -369,15 +369,24 @@ export default class ConvolutionalLayer extends Layer {
     return {
       inW: this.inW,
       inH: this.inH,
-      stride: this.stride,
-      filterSize: this.filterSize,
+      inD: this.inD,
+      strideX: this.strideX,
+      strideY: this.strideY,
+      filterW: this.filterW,
+      filterH: this.filterH,
+      filterCount: this.filterCount,
+      zeroPaddingX: this.zeroPaddingX,
+      zeroPaddingY: this.zeroPaddingY,
+      params: this.getParams()
     }
   }
 
   /** @inheritdoc */
   static fromJSON(json) {
-    const { inW, inH, stride, filterSize } = json
-    return new this({ inW, inH, stride, filterSize })
+    const { params, ...args } = json
+    const layer = new this(args)
+    layer.setParams(params)
+    return layer
   }
 }
 
