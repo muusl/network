@@ -140,15 +140,19 @@ export default class PoolingLayer extends Layer {
     return {
       inW: this.inW,
       inH: this.inH,
-      stride: this.stride,
-      filterSize: this.filterSize,
+      inD: this.inD,
+      strideX: this.strideX,
+      strideY: this.strideY,
+      filterW: this.filterW,
+      filterH: this.filterH,
+      zeroPaddingX: this.zeroPaddingX,
+      zeroPaddingY: this.zeroPaddingY,
     }
   }
 
   /** @inheritdoc */
   static fromJSON(json) {
-    const { inW, inH, stride, filterSize } = json
-    return new this({ inW, inH, stride, filterSize })
+    return new this(json)
   }
 }
 

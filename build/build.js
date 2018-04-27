@@ -765,8 +765,6 @@ var _Network2 = _interopRequireDefault(_Network);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log('network', _Network2.default);
-
 /***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1485,8 +1483,13 @@ var PoolingLayer = function (_Layer) {
       return {
         inW: this.inW,
         inH: this.inH,
-        stride: this.stride,
-        filterSize: this.filterSize
+        inD: this.inD,
+        strideX: this.strideX,
+        strideY: this.strideY,
+        filterW: this.filterW,
+        filterH: this.filterH,
+        zeroPaddingX: this.zeroPaddingX,
+        zeroPaddingY: this.zeroPaddingY
       };
     }
 
@@ -1495,12 +1498,7 @@ var PoolingLayer = function (_Layer) {
   }], [{
     key: "fromJSON",
     value: function fromJSON(json) {
-      var inW = json.inW,
-          inH = json.inH,
-          stride = json.stride,
-          filterSize = json.filterSize;
-
-      return new this({ inW: inW, inH: inH, stride: stride, filterSize: filterSize });
+      return new this(json);
     }
   }]);
 
